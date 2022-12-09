@@ -6,6 +6,7 @@ export function createRoute(item: BaseRoute): BaseRoute {
     route = { ...item.layout }
   } else if (item.index) {
     route = { ...item.index }
+    route.path = item.path
   } else {
     // Filter out children in clone to process this later on...
     let { children, ...rest } = item
@@ -30,5 +31,6 @@ export function createRoute(item: BaseRoute): BaseRoute {
 
 export function createRoutes(files: Record<string, BaseRoute>): BaseRoute[] {
   const struct = createStructure(files)
+  console.log("STRUCT:", struct)
   return [createRoute(struct)]
 }

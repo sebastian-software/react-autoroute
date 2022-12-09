@@ -31,6 +31,9 @@ export function addModule(root: BaseRoute, fragments: string[], module: BaseRout
     parent.layout = module
   } else if (name === 'index') {
     parent.index = module
+    if (parent === root) {
+      parent.path = "/"
+    }
   } else {
     const child: BaseRoute = { ...module }
     child.path = name
