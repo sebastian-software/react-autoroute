@@ -1,0 +1,16 @@
+import { Link, Outlet } from "react-router-dom";
+
+export default function Home() {
+  return (
+    <>
+      <h1>Home Page</h1>
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="about">About</Link></li>
+        <li><Link to="imprint">Imprint</Link></li>
+        <li><Link to="posts">Posts</Link></li>
+      </ul>
+      <Outlet/>
+    </>
+  )
+}

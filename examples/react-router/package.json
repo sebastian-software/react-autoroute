@@ -10,8 +10,9 @@
   },
   "dependencies": {
     "react": "^18.2.0",
+    "react-autoroute": "workspace:*",
     "react-dom": "^18.2.0",
-    "react-autoroute": "workspace:*"
+    "react-router-dom": "^6.4.5"
   },
   "devDependencies": {
     "@types/react": "^18.0.24",
