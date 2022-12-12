@@ -16,7 +16,24 @@
 
 ## Documentation
 
-TODO
+Example:
+
+```tsx
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createRoutes, importReactRouterModules, modulesToRouteObjects } from "react-autoroute"
+
+const routes = createRoutes(modulesToRouteObjects(importReactRouterModules()))
+const router = createBrowserRouter(routes)
+
+function App() {
+  return (
+    <div>
+      <h1>Vite + React Router</h1>
+      <RouterProvider router={router} />
+    </div>
+  )
+}
+```
 
 
 ## License
