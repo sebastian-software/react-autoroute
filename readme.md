@@ -5,6 +5,8 @@ File-based auto routing set-up for [Vite](https://vitejs.dev) + [React Router](h
 ![CI Test](https://github.com/sebastian-software/react-autoroute/actions/workflows/test.yml/badge.svg)
 ![npm](https://img.shields.io/npm/v/react-autoroute)
 
+- [Demo](https://sebastian-software.github.io/react-autoroute/index.html)
+
 ## License
 
 [Apache License; Version 2.0, January 2004](http://www.apache.org/licenses/LICENSE-2.0)
