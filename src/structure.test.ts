@@ -26,6 +26,7 @@ describe('Create Structure', () => {
         "index": {
           "element": "<PageRoot />",
         },
+        "path": "/",
       }
     `)
   })
@@ -46,6 +47,7 @@ describe('Create Structure', () => {
           "element": "<LayoutRoot />",
           "errorElement": "<PageRootError />",
         },
+        "path": "/",
       }
     `)
   })
@@ -66,6 +68,7 @@ describe('Create Structure', () => {
           "element": "<LayoutRoot />",
           "errorElement": "<PageRootError />",
         },
+        "path": "/",
       }
     `)
   })
