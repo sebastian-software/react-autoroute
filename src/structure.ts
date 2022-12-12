@@ -7,14 +7,18 @@ export const patterns = {
 
 export function addModule(root: BaseRoute, fragments: string[], module: BaseRoute) {
   let parent = root
-  for (var i = 0; i < fragments.length - 1; i++) {
+  const length = fragments.length - 1
+  for (var i = 0; i < length; i++) {
     const name = fragments[i]
     let child: BaseRoute | undefined
     if (parent.children) {
-      child = parent.children.find((child) => child.path === name)
+      // Find potential previously added parent candidate which is not a leaf (= same folder)
+      child = parent.children.find((child) => !child.leaf && child.path === name)
     } else {
       parent.children = []
     }
+
+    // Create a new child for usage as parent later on
     if (!child) {
       child = {
         path: name,
@@ -38,6 +42,7 @@ export function addModule(root: BaseRoute, fragments: string[], module: BaseRout
   } else {
     const child: BaseRoute = { ...module }
     child.path = name
+    child.leaf = true
     parent.children ??= []
     parent.children.push(child)
   }

@@ -7,9 +7,15 @@ export const rootPages = {
   'index.tsx': { element: '<PageRoot />' },
 }
 
-export const postsPages = {
+export const postsPagesWithLayout = {
   'posts.archive.tsx': { element: '<PagePostsArchive />' },
   'posts/_.tsx': { element: '<LayoutPosts />', errorElement: '<PagePostsError />' },
   'posts/[slug].tsx': { element: '<PagePost />' },
   'posts/index.tsx': { element: '<PagePostIndex />' },
+}
+
+export const postsPagesWithSeparation = {
+  'posts.tsx': { element: '<PagePostsArchive />' },
+  'posts/_.tsx': { element: '<LayoutPosts />', errorElement: '<PagePostsError />' },
+  'posts/[slug].tsx': { element: '<PagePost />' }
 }

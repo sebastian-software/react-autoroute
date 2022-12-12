@@ -1,5 +1,5 @@
 import { test, expect, describe } from '@jest/globals'
-import { postsPages, rootLayout, rootPages } from './fixtures/pages'
+import { postsPagesWithLayout, postsPagesWithSeparation, rootLayout, rootPages } from './fixtures/pages'
 import { createStructure } from './structure'
 
 describe('Create Structure', () => {
@@ -20,6 +20,7 @@ describe('Create Structure', () => {
         "children": [
           {
             "element": "<PageAbout />",
+            "leaf": true,
             "path": "about",
           },
         ],
@@ -37,6 +38,7 @@ describe('Create Structure', () => {
         "children": [
           {
             "element": "<PageAbout />",
+            "leaf": true,
             "path": "about",
           },
         ],
@@ -58,6 +60,7 @@ describe('Create Structure', () => {
         "children": [
           {
             "element": "<PageAbout />",
+            "leaf": true,
             "path": "about",
           },
         ],
@@ -73,18 +76,48 @@ describe('Create Structure', () => {
     `)
   })
 
-  test('posts pages', () => {
-    expect(createStructure(postsPages)).toMatchInlineSnapshot(`
+  test('posts pages with separation', () => {
+    expect(createStructure(postsPagesWithSeparation)).toMatchInlineSnapshot(`
       {
         "children": [
           {
             "element": "<PagePostsArchive />",
+            "leaf": true,
+            "path": "posts",
+          },
+          {
+            "children": [
+              {
+                "element": "<PagePost />",
+                "leaf": true,
+                "path": ":slug",
+              },
+            ],
+            "layout": {
+              "element": "<LayoutPosts />",
+              "errorElement": "<PagePostsError />",
+            },
+            "path": "posts",
+          },
+        ],
+      }
+    `)
+  })
+
+  test('posts pages with layout', () => {
+    expect(createStructure(postsPagesWithLayout)).toMatchInlineSnapshot(`
+      {
+        "children": [
+          {
+            "element": "<PagePostsArchive />",
+            "leaf": true,
             "path": "posts/archive",
           },
           {
             "children": [
               {
                 "element": "<PagePost />",
+                "leaf": true,
                 "path": ":slug",
               },
             ],
