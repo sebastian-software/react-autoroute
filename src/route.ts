@@ -1,6 +1,8 @@
+import type { RouteObject } from "react-router-dom"
+
 import { createStructure } from "./structure"
 
-export function createRoute(item: BaseRoute, prepend = ""): BaseRoute {
+export function createRoute(item: BaseRoute, prepend = ""): RouteObject {
   let route: BaseRoute
   if (item.layout) {
     route = { ...item.layout }
@@ -45,7 +47,7 @@ export function createRoute(item: BaseRoute, prepend = ""): BaseRoute {
   return route
 }
 
-export function createRoutes(files: Record<string, BaseRoute>): BaseRoute[] {
+export function createRoutes(files: Record<string, BaseRoute>): RouteObject[] {
   const struct = createStructure(files)
   return [createRoute(struct)]
 }
