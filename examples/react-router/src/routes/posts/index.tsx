@@ -9,7 +9,6 @@ export default function PostsIndex() {
         <li><Link to="second">Second</Link></li>
         <li><Link to="third">Third</Link></li>
       </ul>
-      <Outlet/>
     </>
   )
 }
