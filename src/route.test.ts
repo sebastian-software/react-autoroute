@@ -79,7 +79,7 @@ describe('Create Routes', () => {
               "children": [
                 {
                   "element": "<PageUserName />",
-                  "path": "username",
+                  "path": "settings/username",
                 },
               ],
               "element": "<LayoutSettings />",
