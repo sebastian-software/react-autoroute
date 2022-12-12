@@ -18,8 +18,9 @@ const data = [
   }
 ]
 
-export default function PostsIndex() {
+export default function Post() {
   const params = useParams()
+  console.log("Post Params:", params)
   const post = data.find((entry) => entry.id === params.id)
   return (
     <>
