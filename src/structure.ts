@@ -25,7 +25,8 @@ export function addModule(root: BaseRoute, fragments: string[], module: BaseRout
     parent = child
   }
 
-  const name = fragments.at(-1)
+  // Replacement for Array.prototype.at() which is not supported in NodeJS v14
+  const name = fragments.slice(-1)[0]
 
   if (name === '_') {
     parent.layout = module
