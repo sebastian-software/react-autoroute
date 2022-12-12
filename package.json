@@ -4,6 +4,9 @@
   "description": "A route auto generator based on Vite glob patterns",
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
   "author": {
     "name": "Sebastian Werner",
     "email": "s.werner@sebastian-software.de",
