@@ -15,6 +15,7 @@ export function createRoute(item: BaseRoute, prepend = ""): BaseRoute {
     // Make sure to prepend path segments from parent if not consumed already e.g. layout only
     if (item.path) {
       route.path = prepend + item.path
+      prepend = ""
     }
   } else {
     // Filter out children in clone to process this later on...
@@ -24,6 +25,7 @@ export function createRoute(item: BaseRoute, prepend = ""): BaseRoute {
     // Make sure to prepend path segments from parent if not consumed already e.g. layout only
     if (path) {
       route.path = prepend + path
+      prepend = ""
     }
   }
 
