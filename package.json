@@ -23,6 +23,7 @@
     "build:examples": "pnpm turbo build",
     "watch": "tsc --watch",
     "check": "tsc --noEmit",
+    "check:examples": "pnpm turbo check",
     "test": "jest",
     "release": "release-it"
   },
