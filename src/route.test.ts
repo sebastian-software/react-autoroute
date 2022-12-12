@@ -14,6 +14,7 @@ describe('Create Routes', () => {
             },
           ],
           "element": "<PageRoot />",
+          "path": "/",
         },
       ]
     `)
