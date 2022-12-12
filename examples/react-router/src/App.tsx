@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import type { ActionFunction, LoaderFunction } from 'react-router-dom'
 
-import { createRoutes } from "../../../lib"
+import { createRoutes } from "react-autoroute"
 
 type Element = () => JSX.Element
 type Module = { default: Element; Loader: LoaderFunction; Action: ActionFunction; ErrorElement: Element }
