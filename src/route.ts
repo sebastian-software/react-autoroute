@@ -4,6 +4,9 @@ export function createRoute(item: BaseRoute): BaseRoute {
   let route: BaseRoute
   if (item.layout) {
     route = { ...item.layout }
+    if (item.path && item.index) {
+      route.path = item.path
+    }
   } else if (item.index) {
     route = { ...item.index }
     route.path = item.path

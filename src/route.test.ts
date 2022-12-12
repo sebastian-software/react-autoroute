@@ -50,10 +50,12 @@ describe('Create Routes', () => {
               ],
               "element": "<LayoutPosts />",
               "errorElement": "<PagePostsError />",
+              "path": "posts",
             },
           ],
           "element": "<LayoutRoot />",
           "errorElement": "<PageRootError />",
+          "path": "/",
         },
       ]
     `)
