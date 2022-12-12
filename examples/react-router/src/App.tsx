@@ -10,8 +10,6 @@ const routes = createRoutes(modulesToRouteObjects(importReactRouterModules()))
 const createRouter = location.pathname.endsWith("/index.html") ? createHashRouter : createBrowserRouter
 const router = createRouter(routes)
 
-console.log("Routes:", routes)
-
 function App() {
   return (
     <div>
