@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 export default function Home() {
   return (
     <>
-      <h1>Home Page</h1>
+      <h1>Home Page (with Outlet to render children)</h1>
       <ul>
         <li><Link to="/">Home</Link></li>
         <li><Link to="about">About</Link></li>
