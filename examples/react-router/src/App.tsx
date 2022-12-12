@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import {
   createBrowserRouter,
+  createHashRouter,
   RouterProvider
 } from "react-router-dom";
 
@@ -20,7 +21,8 @@ for (var fileName in ROUTES) {
 }
 
 const routes = createRoutes(routeConfig)
-const router = createBrowserRouter(routes)
+const createRouter = location.pathname.endsWith("/index.html") ? createHashRouter : createBrowserRouter
+const router = createRouter(routes)
 
 console.log("Config", routeConfig)
 console.log("Routes:", routes)
