@@ -1,0 +1,1 @@
+import{a as n,F as e,j as i,L as r}from"./index.e79e0aca.js";function s(){return n(e,{children:[i("h1",{children:"Posts Index"}),n("ul",{children:[i("li",{children:i(r,{to:"first",children:"First"})}),i("li",{children:i(r,{to:"second",children:"Second"})}),i("li",{children:i(r,{to:"third",children:"Third"})})]})]})}export{s as default};
