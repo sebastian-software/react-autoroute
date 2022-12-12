@@ -9,6 +9,7 @@ export default function Home() {
         <li><Link to="about">About</Link></li>
         <li><Link to="imprint">Imprint</Link></li>
         <li><Link to="posts">Posts</Link></li>
+        <li><Link to="settings">Settings</Link></li>
       </ul>
       <Outlet/>
     </>

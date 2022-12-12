@@ -19,3 +19,9 @@ export const postsPagesWithSeparation = {
   'posts/_.tsx': { element: '<LayoutPosts />', errorElement: '<PagePostsError />' },
   'posts/[slug].tsx': { element: '<PagePost />' }
 }
+
+export const settingsPages = {
+  'settings.tsx': { element: '<PageSettings />' },
+  'settings/_.tsx': { element: '<LayoutSettings />' },
+  'settings/username/index.tsx': { element: '<PageUserName />' }
+}

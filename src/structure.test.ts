@@ -1,5 +1,5 @@
 import { test, expect, describe } from '@jest/globals'
-import { postsPagesWithLayout, postsPagesWithSeparation, rootLayout, rootPages } from './fixtures/pages'
+import { postsPagesWithLayout, postsPagesWithSeparation, rootLayout, rootPages, settingsPages } from './fixtures/pages'
 import { createStructure } from './structure'
 
 describe('Create Structure', () => {
@@ -129,6 +129,34 @@ describe('Create Structure', () => {
               "errorElement": "<PagePostsError />",
             },
             "path": "posts",
+          },
+        ],
+      }
+    `)
+  })
+
+  test('settings structure', () => {
+    expect(createStructure(settingsPages)).toMatchInlineSnapshot(`
+      {
+        "children": [
+          {
+            "element": "<PageSettings />",
+            "leaf": true,
+            "path": "settings",
+          },
+          {
+            "children": [
+              {
+                "index": {
+                  "element": "<PageUserName />",
+                },
+                "path": "username",
+              },
+            ],
+            "layout": {
+              "element": "<LayoutSettings />",
+            },
+            "path": "settings",
           },
         ],
       }
