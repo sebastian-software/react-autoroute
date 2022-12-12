@@ -1,0 +1,22 @@
+name: Deploy
+on:
+  push:
+    branches: [ "main" ]
+permissions:
+  contents: write
+jobs:
+  deploy:
+    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+      - run: pnpm install
+      - run: pnpm run build:examples
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: examples/react-router/dist
