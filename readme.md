@@ -1,11 +1,23 @@
 # React Autoroute
 
-File-based auto routing set-up for [Vite](https://vitejs.dev) + [React Router](https://reactrouter.com/en/main) based web applications.
+[NextJS](https://nextjs.org/docs/routing/introduction)/RemixJS/SvelteKit inspired auto routing based on filesystem layout using [Vite](https://vitejs.dev) glob imports. Currently supports [React Router](https://reactrouter.com/en/main) only. [TanStack Router](https://tanstack.com/router/v1) support will be added later when reaching a more mature phase.
 
 ![CI Test](https://github.com/sebastian-software/react-autoroute/actions/workflows/test.yml/badge.svg)
 ![npm](https://img.shields.io/npm/v/react-autoroute)
 
 - [Demo](https://sebastian-software.github.io/react-autoroute/index.html)
+
+## Features
+
+- Auto glob matching of `routes/**` (NextJS uses `pages/**` which is not a good match to layout nesting though)
+- Index Routes e.g. `routes/blog/index.js` → `/blog`
+- Layout Nesting like in RemixJS, not actually nested routes like in NextJS.
+- Dynamic route segments `routes/blog/[slug].js` → `/blog/:slug` (`/blog/hello-world`)
+
+## Documentation
+
+TODO
+
 
 ## License
 
