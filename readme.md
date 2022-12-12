@@ -3,6 +3,7 @@
 File-based auto routing set-up for [Vite](https://vitejs.dev) + [React Router](https://reactrouter.com/en/main) based web applications.
 
 ![CI Test](https://github.com/sebastian-software/react-autoroute/actions/workflows/test.yml/badge.svg)
+![npm](https://img.shields.io/npm/v/react-autoroute)
 
 ## License
 
