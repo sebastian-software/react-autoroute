@@ -3,6 +3,22 @@ import { postsPages, rootLayout, rootPages } from './fixtures/pages'
 import { createRoutes } from './route'
 
 describe('Create Routes', () => {
+  test('root page', () => {
+    expect(createRoutes({ ...rootPages })).toMatchInlineSnapshot(`
+      [
+        {
+          "children": [
+            {
+              "element": "<PageAbout />",
+              "path": "about",
+            },
+          ],
+          "element": "<PageRoot />",
+        },
+      ]
+    `)
+  })
+
   test('root layout', () => {
     expect(createRoutes({ ...rootLayout, ...rootPages, ...postsPages })).toMatchInlineSnapshot(`
       [
