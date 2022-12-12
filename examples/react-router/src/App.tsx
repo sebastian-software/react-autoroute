@@ -4,8 +4,12 @@ import {
   createHashRouter,
   RouterProvider
 } from "react-router-dom";
+import type { ActionFunction, LoaderFunction } from 'react-router-dom'
 
-import { createRoutes, createStructure } from "../../../lib"
+import { createRoutes } from "../../../lib"
+
+type Element = () => JSX.Element
+type Module = { default: Element; Loader: LoaderFunction; Action: ActionFunction; ErrorElement: Element }
 
 const ROUTES = import.meta.glob<Module>(['/src/routes/**/[\\w$[]*.{jsx,tsx}'])
 console.log("FILE ROUTES:\n-", Object.keys(ROUTES).join("\n- "))
