@@ -1,5 +1,5 @@
 import { test, expect, describe } from '@jest/globals'
-import { postsPages, rootLayout, rootPages } from './fixtures/pages'
+import { postsPagesWithLayout, rootLayout, rootPages } from './fixtures/pages'
 import { createRoutes } from './route'
 
 describe('Create Routes', () => {
@@ -10,6 +10,7 @@ describe('Create Routes', () => {
           "children": [
             {
               "element": "<PageAbout />",
+              "leaf": true,
               "path": "about",
             },
           ],
@@ -21,7 +22,7 @@ describe('Create Routes', () => {
   })
 
   test('root layout', () => {
-    expect(createRoutes({ ...rootLayout, ...rootPages, ...postsPages })).toMatchInlineSnapshot(`
+    expect(createRoutes({ ...rootLayout, ...rootPages, ...postsPagesWithLayout })).toMatchInlineSnapshot(`
       [
         {
           "children": [
@@ -31,10 +32,12 @@ describe('Create Routes', () => {
             },
             {
               "element": "<PageAbout />",
+              "leaf": true,
               "path": "about",
             },
             {
               "element": "<PagePostsArchive />",
+              "leaf": true,
               "path": "posts/archive",
             },
             {
@@ -45,6 +48,7 @@ describe('Create Routes', () => {
                 },
                 {
                   "element": "<PagePost />",
+                  "leaf": true,
                   "path": ":slug",
                 },
               ],
