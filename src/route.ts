@@ -34,6 +34,5 @@ export function createRoute(item: BaseRoute): BaseRoute {
 
 export function createRoutes(files: Record<string, BaseRoute>): BaseRoute[] {
   const struct = createStructure(files)
-  console.log("STRUCT:", struct)
   return [createRoute(struct)]
 }
