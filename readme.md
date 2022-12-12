@@ -1,6 +1,6 @@
 # React Autoroute
 
-File-based auto routing set-up for React Router based web applications.
+File-based auto routing set-up for [Vite](https://vitejs.dev) + [React Router](https://reactrouter.com/en/main) based web applications.
 
 ## License
 
