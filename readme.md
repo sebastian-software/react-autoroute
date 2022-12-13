@@ -1,6 +1,6 @@
 # React Autoroute
 
-[NextJS](https://nextjs.org/docs/routing/introduction)/RemixJS/SvelteKit inspired auto routing based on filesystem layout using [Vite](https://vitejs.dev) glob imports. Currently supports [React Router](https://reactrouter.com/en/main) only. [TanStack Router](https://tanstack.com/router/v1) support will be added later when reaching a more mature phase.
+[NextJS](https://nextjs.org/docs/routing/introduction)/RemixJS/SvelteKit inspired auto routing based on filesystem layout using [Vite](https://vitejs.dev) [glob imports](https://vitejs.dev/guide/features.html#glob-import). Currently supports [React Router](https://reactrouter.com/en/main) only. [TanStack Router](https://tanstack.com/router/v1) support will be added later when reaching a more mature phase.
 
 ![Test](https://github.com/sebastian-software/react-autoroute/actions/workflows/test.yml/badge.svg)
 ![Deploy](https://github.com/sebastian-software/react-autoroute/actions/workflows/deploy.yml/badge.svg)
@@ -36,9 +36,10 @@ function App() {
 }
 ```
 
-Note: You might wonder: The actual glob import feature of Vite cannot be implemented in the library-space because
-of unwanted side-effects (e.g. the library creates dependencies to the actual application using it)
-and produces problems in combination with `lazy` loading of components/routes.
+Note: You might wonder: The actual [glob import feature](https://vitejs.dev/guide/features.html#glob-import) of
+Vite cannot be implemented in the library-space because of unwanted side-effects (e.g. the library creates
+dependencies to the actual application using it) and produces problems in combination with `lazy` loading
+of components/routes.
 
 ## License
 
