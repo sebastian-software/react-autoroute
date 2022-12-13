@@ -2,7 +2,8 @@
 
 [NextJS](https://nextjs.org/docs/routing/introduction)/RemixJS/SvelteKit inspired auto routing based on filesystem layout using [Vite](https://vitejs.dev) glob imports. Currently supports [React Router](https://reactrouter.com/en/main) only. [TanStack Router](https://tanstack.com/router/v1) support will be added later when reaching a more mature phase.
 
-![CI Test](https://github.com/sebastian-software/react-autoroute/actions/workflows/test.yml/badge.svg)
+![Test](https://github.com/sebastian-software/react-autoroute/actions/workflows/test.yml/badge.svg)
+![Deploy](https://github.com/sebastian-software/react-autoroute/actions/workflows/deploy.yml/badge.svg)
 ![npm](https://img.shields.io/npm/v/react-autoroute)
 
 - [Demo](https://sebastian-software.github.io/react-autoroute/index.html)
