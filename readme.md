@@ -21,21 +21,24 @@ Example:
 
 ```tsx
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { createRoutes, importReactRouterModules, modulesToRouteObjects } from "react-autoroute"
+import { createRoutes, modulesToLazyRouteObjects } from "react-autoroute"
 
-const routes = createRoutes(modulesToRouteObjects(importReactRouterModules()))
+const routes = createRoutes(modulesToLazyRouteObjects(
+  import.meta.glob<ReactRouterRouteModule>(["/src/routes/**/[\\w$[]*.{jsx,tsx}"]),
+    "/src/routes/"
+))
 const router = createBrowserRouter(routes)
 
 function App() {
   return (
-    <div>
-      <h1>Vite + React Router</h1>
-      <RouterProvider router={router} />
-    </div>
+    <RouterProvider router={router} />
   )
 }
 ```
 
+Note: You might wonder: The actual glob import feature of Vite cannot be implemented in the library-space because
+of unwanted side-effects (e.g. the library creates dependencies to the actual application using it)
+and produces problems in combination with `lazy` loading of components/routes.
 
 ## License
 

@@ -6,16 +6,12 @@ export type ElementFactory = () => JSX.Element
 export type ReactRouterRouteModule = { default: ElementFactory; Loader: LoaderFunction; Action: ActionFunction; ErrorElement: ElementFactory }
 export type ReactRouterImportMap = Record<string, () => Promise<ReactRouterRouteModule>>
 
-export function importReactRouterModules(): ReactRouterImportMap {
-  return import.meta.glob<ReactRouterRouteModule>(['/src/routes/**/[\\w$[]*.{jsx,tsx}'])
-}
-
-export function modulesToRouteObjects(imports: ReactRouterImportMap) {
+export function modulesToLazyRouteObjects(imports: ReactRouterImportMap, root: string) {
   const routeConfig: Record<string, any> = {}
   for (var fileName in imports) {
     const LazyElement = lazy(imports[fileName])
 
-    routeConfig[fileName.replace("/src/routes/", "")] = {
+    routeConfig[fileName.replace(root, "")] = {
       element: <Suspense fallback={null} children={<LazyElement />} />,
     }
   }
