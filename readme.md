@@ -20,6 +20,8 @@
 Example:
 
 ```tsx
+/// <reference types="vite/client" />
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { createRoutes, modulesToLazyRouteObjects } from "react-autoroute"
 
