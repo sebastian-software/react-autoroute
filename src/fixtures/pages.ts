@@ -5,6 +5,7 @@ export const rootLayout = {
 export const rootPages = {
   'about.tsx': { element: '<PageAbout />' },
   'index.tsx': { element: '<PageRoot />' },
+  '404.tsx': { element: '<NotFound />' },
 }
 
 export const postsPagesWithLayout = {

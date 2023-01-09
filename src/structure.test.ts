@@ -23,6 +23,11 @@ describe('Create Structure', () => {
             "leaf": true,
             "path": "about",
           },
+          {
+            "element": "<NotFound />",
+            "leaf": true,
+            "path": "*",
+          },
         ],
         "index": {
           "element": "<PageRoot />",
@@ -40,6 +45,11 @@ describe('Create Structure', () => {
             "element": "<PageAbout />",
             "leaf": true,
             "path": "about",
+          },
+          {
+            "element": "<NotFound />",
+            "leaf": true,
+            "path": "*",
           },
         ],
         "index": {
@@ -62,6 +72,11 @@ describe('Create Structure', () => {
             "element": "<PageAbout />",
             "leaf": true,
             "path": "about",
+          },
+          {
+            "element": "<NotFound />",
+            "leaf": true,
+            "path": "*",
           },
         ],
         "index": {

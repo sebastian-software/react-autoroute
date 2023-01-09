@@ -13,6 +13,11 @@ describe('Create Routes', () => {
               "leaf": true,
               "path": "about",
             },
+            {
+              "element": "<NotFound />",
+              "leaf": true,
+              "path": "*",
+            },
           ],
           "element": "<PageRoot />",
           "path": "/",
@@ -34,6 +39,11 @@ describe('Create Routes', () => {
               "element": "<PageAbout />",
               "leaf": true,
               "path": "about",
+            },
+            {
+              "element": "<NotFound />",
+              "leaf": true,
+              "path": "*",
             },
             {
               "element": "<PagePostsArchive />",
