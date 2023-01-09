@@ -41,7 +41,7 @@ export function addModule(root: BaseRoute, fragments: string[], module: BaseRout
     }
   } else {
     const child: BaseRoute = { ...module }
-    child.path = name
+    child.path = name === "404" ? "*" : name
     child.leaf = true
     parent.children ??= []
     parent.children.push(child)

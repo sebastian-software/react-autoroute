@@ -7,6 +7,7 @@ const routes = createRoutes(
     "/src/routes/"
   )
 )
+
 const createRouter = location.pathname.endsWith("/index.html") ? createHashRouter : createBrowserRouter
 const router = createRouter(routes)
 
