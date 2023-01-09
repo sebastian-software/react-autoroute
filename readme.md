@@ -14,6 +14,7 @@
 - Index Routes e.g. `routes/blog/index.js` → `/blog`
 - Layout Nesting like in RemixJS, not actually nested routes like in NextJS.
 - Dynamic route segments `routes/blog/[slug].js` → `/blog/:slug` (`/blog/hello-world`)
+- 404 handling by adding a `404.tsx` file at any location.
 
 ## Documentation
 
