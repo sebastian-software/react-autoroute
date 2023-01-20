@@ -1,15 +1,29 @@
-
 export const patterns = {
-  route: [/\.(jsx|tsx)$/, ''],
-  param: [/\[([^\]]+)\]/g, ':$1'],
-  splat: [/\/\$$/, '/*'],
+  route: [/\.(jsx|tsx)$/, ""],
+  param: [/\[([^\]]+)\]/g, ":$1"],
+  splat: [/\/\$$/, "/*"]
 } as const
 
 function camelToKebab(str: string): string {
-  return str.replace(/(?<!^)[A-Z]/g, letter => `-${letter.toLowerCase()}`).toLowerCase();
+  let kebab = str[0].toLowerCase()
+
+  for (let i = 1; i < str.length; i++) {
+    const char = str[i]
+    if (/[A-Z]/.test(char)) {
+      kebab += "-" + char.toLowerCase()
+    } else {
+      kebab += char
+    }
+  }
+
+  return kebab
 }
 
-export function addModule(root: BaseRoute, fragments: string[], module: BaseRoute) {
+export function addModule(
+  root: BaseRoute,
+  fragments: string[],
+  module: BaseRoute
+) {
   let parent = root
   const length = fragments.length - 1
   for (var i = 0; i < length; i++) {
@@ -17,7 +31,9 @@ export function addModule(root: BaseRoute, fragments: string[], module: BaseRout
     let child: BaseRoute | undefined
     if (parent.children) {
       // Find potential previously added parent candidate which is not a leaf (= same folder)
-      child = parent.children.find((child) => !child.leaf && child.path === name)
+      child = parent.children.find(
+        (child) => !child.leaf && child.path === name
+      )
     } else {
       parent.children = []
     }
@@ -25,7 +41,7 @@ export function addModule(root: BaseRoute, fragments: string[], module: BaseRout
     // Create a new child for usage as parent later on
     if (!child) {
       child = {
-        path: name,
+        path: name
       }
       parent.children.push(child)
     }
@@ -46,11 +62,13 @@ export function addModule(root: BaseRoute, fragments: string[], module: BaseRout
     name = "index"
   }
 
-  if (name === '_') {
+  if (name === "_") {
     parent.layout = module
-  } else if (name === 'index') {
+  } else if (name === "index") {
     if (parent.index) {
-      throw new Error(`Collision of two index pages at: ${JSON.stringify(fragments)}`)
+      throw new Error(
+        `Collision of two index pages at: ${JSON.stringify(fragments)}`
+      )
     }
 
     parent.index = module
@@ -71,9 +89,9 @@ export function fileNameToLayoutStructure(fileName: string): string[] {
     .replace(...patterns.route)
     .replace(...patterns.param)
     .replace(...patterns.splat)
-    .split('/')
+    .split("/")
     .filter(Boolean)
-    .map((fragment) => fragment.replace(/\./g, '/'))
+    .map((fragment) => fragment.replace(/\./g, "/"))
 }
 
 export function createStructure(files: Record<string, BaseRoute>): BaseRoute {

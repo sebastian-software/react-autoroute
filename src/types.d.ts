@@ -1,1 +1,5 @@
-type BaseRoute = { path?: string; children?: BaseRoute[], leaf?: boolean } & Record<string, any>
+type BaseRoute = {
+  path?: string
+  children?: BaseRoute[]
+  leaf?: boolean
+} & Record<string, any>

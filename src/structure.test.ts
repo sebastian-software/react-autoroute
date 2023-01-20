@@ -1,9 +1,17 @@
-import { test, expect, describe } from '@jest/globals'
-import { postsPagesWithLayout, postsPagesWithSeparation, rootLayout, rootPages, rootPagesCamelCase, settingsPages, settingsPagesNamedIndex } from './fixtures/pages'
-import { createStructure } from './structure'
+import { test, expect, describe } from "@jest/globals"
+import {
+  postsPagesWithLayout,
+  postsPagesWithSeparation,
+  rootLayout,
+  rootPages,
+  rootPagesCamelCase,
+  settingsPages,
+  settingsPagesNamedIndex
+} from "./fixtures/pages"
+import { createStructure } from "./structure"
 
-describe('Create Structure', () => {
-  test('root layout', () => {
+describe("Create Structure", () => {
+  test("root layout", () => {
     expect(createStructure(rootLayout)).toMatchInlineSnapshot(`
       {
         "layout": {
@@ -14,7 +22,7 @@ describe('Create Structure', () => {
     `)
   })
 
-  test('root pages', () => {
+  test("root pages", () => {
     expect(createStructure(rootPages)).toMatchInlineSnapshot(`
       {
         "children": [
@@ -37,7 +45,7 @@ describe('Create Structure', () => {
     `)
   })
 
-  test('root pages {camelcase)', () => {
+  test("root pages {camelcase)", () => {
     expect(createStructure(rootPagesCamelCase)).toMatchInlineSnapshot(`
       {
         "children": [
@@ -60,8 +68,9 @@ describe('Create Structure', () => {
     `)
   })
 
-  test('root pages with layout (layout first)', () => {
-    expect(createStructure({ ...rootLayout, ...rootPages })).toMatchInlineSnapshot(`
+  test("root pages with layout (layout first)", () => {
+    expect(createStructure({ ...rootLayout, ...rootPages }))
+      .toMatchInlineSnapshot(`
       {
         "children": [
           {
@@ -87,8 +96,9 @@ describe('Create Structure', () => {
     `)
   })
 
-  test('root pages with layout (pages first)', () => {
-    expect(createStructure({ ...rootPages, ...rootLayout })).toMatchInlineSnapshot(`
+  test("root pages with layout (pages first)", () => {
+    expect(createStructure({ ...rootPages, ...rootLayout }))
+      .toMatchInlineSnapshot(`
       {
         "children": [
           {
@@ -114,7 +124,7 @@ describe('Create Structure', () => {
     `)
   })
 
-  test('posts pages with separation', () => {
+  test("posts pages with separation", () => {
     expect(createStructure(postsPagesWithSeparation)).toMatchInlineSnapshot(`
       {
         "children": [
@@ -142,7 +152,7 @@ describe('Create Structure', () => {
     `)
   })
 
-  test('posts pages with layout', () => {
+  test("posts pages with layout", () => {
     expect(createStructure(postsPagesWithLayout)).toMatchInlineSnapshot(`
       {
         "children": [
@@ -173,7 +183,7 @@ describe('Create Structure', () => {
     `)
   })
 
-  test('settings structure', () => {
+  test("settings structure", () => {
     expect(createStructure(settingsPages)).toMatchInlineSnapshot(`
       {
         "children": [
@@ -201,7 +211,7 @@ describe('Create Structure', () => {
     `)
   })
 
-  test('settings structure', () => {
+  test("settings structure", () => {
     expect(createStructure(settingsPagesNamedIndex)).toMatchInlineSnapshot(`
       {
         "children": [
