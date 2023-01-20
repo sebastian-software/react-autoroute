@@ -5,6 +5,10 @@ export const patterns = {
   splat: [/\/\$$/, '/*'],
 } as const
 
+function camelToKebab(str: string): string {
+  return str.replace(/(?<!^)[A-Z]/g, letter => `_${letter.toLowerCase()}`).toLowerCase();
+}
+
 export function addModule(root: BaseRoute, fragments: string[], module: BaseRoute) {
   let parent = root
   const length = fragments.length - 1
@@ -30,7 +34,7 @@ export function addModule(root: BaseRoute, fragments: string[], module: BaseRout
   }
 
   // Replacement for Array.prototype.at() which is not supported in NodeJS v14
-  const name = fragments.slice(-1)[0]
+  const name = camelToKebab(fragments.slice(-1)[0])
 
   if (name === '_') {
     parent.layout = module
