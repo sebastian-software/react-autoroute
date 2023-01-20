@@ -33,12 +33,26 @@ export function addModule(root: BaseRoute, fragments: string[], module: BaseRout
     parent = child
   }
 
-  // Replacement for Array.prototype.at() which is not supported in NodeJS v14
-  const name = camelToKebab(fragments.slice(-1)[0])
+  // Apply kebab transform on fileName to allow classic React-style component
+  // file names while using dashes in resulting URL paths e.g.
+  // `PrivacySettings` => `privacy-settings`
+  // The combination with slice() is a compatible replacement for
+  // Array.prototype.at() which is not supported in NodeJS v14
+  let name = camelToKebab(fragments.slice(-1)[0])
+
+  // If the page name is identical to the parent path then we
+  // assume that this is meant as a better named index page.
+  if (name === parent.path) {
+    name = "index"
+  }
 
   if (name === '_') {
     parent.layout = module
   } else if (name === 'index') {
+    if (parent.index) {
+      throw new Error(`Collision of two index pages at: ${JSON.stringify(fragments)}`)
+    }
+
     parent.index = module
     if (parent === root) {
       parent.path = "/"
