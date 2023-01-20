@@ -8,34 +8,40 @@
 
 - [Demo](https://sebastian-software.github.io/react-autoroute/index.html)
 
-## Features
+## Feature Overview
 
 - Auto glob matching of `routes/**` (NextJS uses `pages/**` which is not a good match to layout nesting though)
-- Index Routes e.g. `routes/blog/index.js` → `/blog`
+- Component centric route file names: `routes/settings/PrivacySettings.js` => `/settings/privacy-settings`
+- Index Routes e.g. `routes/blog/Index.js` → `/blog` or alternatively `routes/blog/Blog.js` => `/blog`.
 - Layout Nesting like in RemixJS, not actually nested routes like in NextJS.
 - Dynamic route segments `routes/blog/[slug].js` → `/blog/:slug` (`/blog/hello-world`)
 - 404 handling by adding a `404.tsx` file at any location.
 
-## Documentation
+## File Name Conventions
+
+- Files exporting React components are using camelCase and start with a uppercase letter: `UserSettings.tsx`
+- Index pages are either named `Index.js` or are using the parents name e.g. `settings/Settings.js`
+
+## Usage
 
 Example:
 
 ```tsx
 /// <reference types="vite/client" />
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { createRoutes, modulesToLazyRouteObjects } from "react-autoroute"
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createRoutes, modulesToLazyRouteObjects } from 'react-autoroute'
 
-const routes = createRoutes(modulesToLazyRouteObjects(
-  import.meta.glob<ReactRouterRouteModule>(["/src/routes/**/[\\w$[]*.{jsx,tsx}"]),
-    "/src/routes/"
-))
+const routes = createRoutes(
+  modulesToLazyRouteObjects(
+    import.meta.glob<ReactRouterRouteModule>(['/src/routes/**/[\\w$[]*.{jsx,tsx}']),
+    '/src/routes/'
+  )
+)
 const router = createBrowserRouter(routes)
 
 function App() {
-  return (
-    <RouterProvider router={router} />
-  )
+  return <RouterProvider router={router} />
 }
 ```
 
