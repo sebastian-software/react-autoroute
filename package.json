@@ -1,6 +1,6 @@
 {
   "name": "react-autoroute",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "A route auto generator based on Vite glob patterns",
   "homepage": "https://github.com/sebastian-software/react-autoroute#readme",
   "repository": {
