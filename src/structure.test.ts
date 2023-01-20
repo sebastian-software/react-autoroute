@@ -1,5 +1,5 @@
 import { test, expect, describe } from '@jest/globals'
-import { postsPagesWithLayout, postsPagesWithSeparation, rootLayout, rootPages, settingsPages } from './fixtures/pages'
+import { postsPagesWithLayout, postsPagesWithSeparation, rootLayout, rootPages, rootPagesCamelCase, settingsPages, settingsPagesNamedIndex } from './fixtures/pages'
 import { createStructure } from './structure'
 
 describe('Create Structure', () => {
@@ -22,6 +22,29 @@ describe('Create Structure', () => {
             "element": "<PageAbout />",
             "leaf": true,
             "path": "about",
+          },
+          {
+            "element": "<NotFound />",
+            "leaf": true,
+            "path": "*",
+          },
+        ],
+        "index": {
+          "element": "<PageRoot />",
+        },
+        "path": "/",
+      }
+    `)
+  })
+
+  test('root pages {camelcase)', () => {
+    expect(createStructure(rootPagesCamelCase)).toMatchInlineSnapshot(`
+      {
+        "children": [
+          {
+            "element": "<PageAbout />",
+            "leaf": true,
+            "path": "about-page",
           },
           {
             "element": "<NotFound />",
@@ -152,6 +175,34 @@ describe('Create Structure', () => {
 
   test('settings structure', () => {
     expect(createStructure(settingsPages)).toMatchInlineSnapshot(`
+      {
+        "children": [
+          {
+            "element": "<PageSettings />",
+            "leaf": true,
+            "path": "settings",
+          },
+          {
+            "children": [
+              {
+                "index": {
+                  "element": "<PageUserName />",
+                },
+                "path": "username",
+              },
+            ],
+            "layout": {
+              "element": "<LayoutSettings />",
+            },
+            "path": "settings",
+          },
+        ],
+      }
+    `)
+  })
+
+  test('settings structure', () => {
+    expect(createStructure(settingsPagesNamedIndex)).toMatchInlineSnapshot(`
       {
         "children": [
           {

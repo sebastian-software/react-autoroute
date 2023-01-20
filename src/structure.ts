@@ -6,7 +6,7 @@ export const patterns = {
 } as const
 
 function camelToKebab(str: string): string {
-  return str.replace(/(?<!^)[A-Z]/g, letter => `_${letter.toLowerCase()}`).toLowerCase();
+  return str.replace(/(?<!^)[A-Z]/g, letter => `-${letter.toLowerCase()}`).toLowerCase();
 }
 
 export function addModule(root: BaseRoute, fragments: string[], module: BaseRoute) {
