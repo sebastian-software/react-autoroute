@@ -1,1 +1,0 @@
-import{a as e,F as n,j as i,L as r}from"./index.ea8fe6f7.js";function t(){return e(n,{children:[i("h1",{children:"Posts Index (No Outlet)"}),e("ul",{children:[i("li",{children:i(r,{to:"first",children:"First"})}),i("li",{children:i(r,{to:"second",children:"Second"})}),i("li",{children:i(r,{to:"third",children:"Third"})})]})]})}export{t as default};
