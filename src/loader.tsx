@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import type { ActionFunction, LoaderFunction, LoaderFunctionArgs } from 'react-router-dom'
+import type { ActionFunction, LoaderFunction, LoaderFunctionArgs, ActionFunctionArgs } from 'react-router-dom'
 
 export type ElementFactory = () => JSX.Element
 
@@ -13,10 +13,14 @@ export function modulesToLazyRouteObjects(imports: ReactRouterImportMap, root: s
 
     routeConfig[fileName.replace(root, "")] = {
       element: <Suspense fallback={null} children={<LazyElement />} />,
-      loader: async (params: LoaderFunctionArgs) => {
+      loader: async (args: LoaderFunctionArgs) => {
         const callback = await imports[fileName]().then((module) => module.Loader)
-        return callback ? callback(params) : null
-      }
+        return callback ? callback(args) : null
+      },
+      action: async (args: ActionFunctionArgs) => {
+        const callback = await imports[fileName]().then((module) => module.Action)
+        return callback ? callback(args) : null
+      },
     }
   }
 

@@ -1,22 +1,33 @@
-import { Link, Outlet, useLoaderData } from "react-router-dom";
+import { ActionFunctionArgs, Form, Link, LoaderFunctionArgs, Outlet, useLoaderData } from "react-router-dom";
 
 async function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
-export interface LoaderResult {
-  firstName: string
-  name: string
+export type LoaderResult = Record<string, string | number>
+
+const fakeData: Record<string, any> = {
+  firstName: "Gregory",
+  name: "Schmidt"
 }
 
-export async function Loader(): Promise<LoaderResult> {
+export async function Loader({ params }: LoaderFunctionArgs): Promise<LoaderResult> {
+  console.log("Loader Params:", params)
+
   // This could be any `fetch()` which loads data from a remote
   await sleep(500)
+  return fakeData
+}
 
-  return {
-    firstName: "Gregory",
-    name: "Schmidt"
+export async function Action({ request }: ActionFunctionArgs) {
+  const formData = await request.formData();
+  for (const [name, value] of formData) {
+    fakeData[name] = value
   }
+
+  // This could be any `fetch()` which loads data from a remote
+  await sleep(1000)
+  return null
 }
 
 export default function Home() {
@@ -27,6 +38,14 @@ export default function Home() {
     <>
       <h1>Home Page (with Outlet to render children)</h1>
       <p>Howdy {x.firstName} {x.name}</p>
+      <Form method="post" style={{display: "inline-flex", gap:"8px", flexDirection: "column"}}>
+        <label htmlFor="firstName">First Name</label>
+        <input name="firstName" defaultValue={x.firstName}/>
+        <label htmlFor="name">Name</label>
+        <input name="name" defaultValue={x.name}/>
+        <input type="submit" value="Update"/>
+      </Form>
+      <br/><br/>
       <ul>
         <li><Link to="/">Home</Link></li>
         <li><Link to="about">About</Link></li>
