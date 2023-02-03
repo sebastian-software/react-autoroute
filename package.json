@@ -19,9 +19,9 @@
     "build:examples": "pnpm turbo build",
     "check": "tsc --noEmit",
     "check:examples": "pnpm turbo check",
-    "format": "npm run format:pkg && turbo run format --continue --parallel",
+    "format": "npm run format:pkg && npm run format:lib && turbo run format --continue --parallel",
+    "format:lib": "prettier --write './src/**/*.{js,ts,tsx,mts,md,json,yml,yaml,css,html,json}'",
     "format:pkg": "prettier-package-json --write package.json apps/*/package.json packages/*/package.json",
-    "format:verify": "turbo run format:verify --continue --parallel",
     "release": "release-it",
     "test": "jest",
     "watch": "tsc --watch"

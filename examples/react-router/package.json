@@ -8,8 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "format": "prettier --write '**/*.{js,ts,tsx,mts,md,json,yml,yaml,css,html,json}'",
-    "format:verify": "prettier --check '**/*.{js,ts,tsx,mts,md,json,yml,yaml,css,html,json}'"
+    "format": "prettier --write '**/*.{js,ts,tsx,mts,md,json,yml,yaml,css,html,json}'"
   },
   "dependencies": {
     "react": "^18.2.0",
