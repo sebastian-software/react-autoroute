@@ -2,6 +2,8 @@
   "name": "react-autoroute",
   "version": "0.6.3",
   "description": "A route auto generator based on Vite glob patterns",
+  "license": "Apache-2.0",
+  "author": "Sebastian Werner <s.werner@sebastian-software.de> (http://sebastian-software.de/werner)",
   "homepage": "https://github.com/sebastian-software/react-autoroute#readme",
   "repository": {
     "type": "git",
@@ -9,40 +11,22 @@
   },
   "main": "lib/index.js",
   "module": "lib/index.js",
-  "types": "lib/index.d.ts",
   "files": [
     "lib"
   ],
-  "author": {
-    "name": "Sebastian Werner",
-    "email": "s.werner@sebastian-software.de",
-    "url": "http://sebastian-software.de/werner"
-  },
   "scripts": {
     "build": "tsc",
     "build:examples": "pnpm turbo build",
-    "watch": "tsc --watch",
     "check": "tsc --noEmit",
     "check:examples": "pnpm turbo check",
-    "test": "jest",
-    "release": "release-it",
     "format": "npm run format:pkg && turbo run format --continue --parallel",
     "format:pkg": "prettier-package-json --write package.json apps/*/package.json packages/*/package.json",
-    "format:verify": "turbo run format:verify --continue --parallel"
+    "format:verify": "turbo run format:verify --continue --parallel",
+    "release": "release-it",
+    "test": "jest",
+    "watch": "tsc --watch"
   },
-  "engines": {
-    "node": ">=14"
-  },
-  "jest": {
-    "testEnvironment": "node"
-  },
-  "keywords": [
-    "vite",
-    "react-router",
-    "routing",
-    "glob"
-  ],
-  "license": "Apache-2.0",
+  "types": "lib/index.d.ts",
   "peerDependencies": {
     "react": ">=18"
   },
@@ -64,5 +48,17 @@
     "turbo": "^1.7.2",
     "typescript": "^4.9.5",
     "vite": "^4.1.0"
+  },
+  "keywords": [
+    "glob",
+    "react-router",
+    "routing",
+    "vite"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
