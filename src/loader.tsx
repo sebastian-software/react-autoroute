@@ -7,7 +7,7 @@ export type ReactRouterRouteModule = { default: ElementFactory; Loader: LoaderFu
 export type ReactRouterImportMap = Record<string, () => Promise<ReactRouterRouteModule>>
 
 export function modulesToLazyRouteObjects(imports: ReactRouterImportMap, root: string) {
-  const routeConfig: Record<string, any> = {}
+  const routeConfig: Record<string, BaseRoute> = {}
   for (const fileName in imports) {
     const LazyElement = lazy(imports[fileName])
 
