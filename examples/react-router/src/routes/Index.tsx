@@ -12,14 +12,16 @@ const fakeData: Record<string, any> = {
 }
 
 export async function Loader({ params }: LoaderFunctionArgs): Promise<LoaderResult> {
-  console.log("Loader Params:", params)
+  console.log("Loader: Router Params:", params)
 
   // This could be any `fetch()` which loads data from a remote
   await sleep(500)
   return fakeData
 }
 
-export async function Action({ request }: ActionFunctionArgs) {
+export async function Action({ request, params }: ActionFunctionArgs) {
+  console.log("Action: Router Params:", params)
+
   const formData = await request.formData();
   for (const [name, value] of formData) {
     fakeData[name] = value
