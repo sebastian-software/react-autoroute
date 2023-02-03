@@ -1,4 +1,10 @@
-import { ActionFunctionArgs, Form as RouterForm, LoaderFunctionArgs, useLoaderData, useRouteError } from "react-router-dom";
+import {
+  ActionFunctionArgs,
+  Form as RouterForm,
+  LoaderFunctionArgs,
+  useLoaderData,
+  useRouteError
+} from "react-router-dom"
 
 async function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms))
@@ -11,7 +17,9 @@ const fakeData: Record<string, any> = {
   name: "Schmidt"
 }
 
-export async function loader({ params }: LoaderFunctionArgs): Promise<LoaderResult> {
+export async function loader({
+  params
+}: LoaderFunctionArgs): Promise<LoaderResult> {
   console.log("Loader: Router Params:", params)
 
   // This could be any `fetch()` which loads data from a remote
@@ -22,7 +30,7 @@ export async function loader({ params }: LoaderFunctionArgs): Promise<LoaderResu
 export async function action({ request, params }: ActionFunctionArgs) {
   console.log("Action: Router Params:", params)
 
-  const formData = await request.formData();
+  const formData = await request.formData()
   for (const [name, value] of formData) {
     if (value === "") {
       throw new Error(`Missing value for: ${name}!`)
@@ -47,15 +55,19 @@ export default function Form() {
   const x = useLoaderData() as LoaderResult
   return (
     <>
-      <p>Howdy {x.firstName} {x.name}</p>
-      <RouterForm method="post" style={{display: "inline-flex", gap:"8px", flexDirection: "column"}}>
+      <p>
+        Howdy {x.firstName} {x.name}
+      </p>
+      <RouterForm
+        method="post"
+        style={{ display: "inline-flex", gap: "8px", flexDirection: "column" }}
+      >
         <label htmlFor="firstName">First Name</label>
-        <input name="firstName" defaultValue={x.firstName}/>
+        <input name="firstName" defaultValue={x.firstName} />
         <label htmlFor="name">Name</label>
-        <input name="name" defaultValue={x.name}/>
-        <input type="submit" value="Update"/>
+        <input name="name" defaultValue={x.name} />
+        <input type="submit" value="Update" />
       </RouterForm>
     </>
   )
 }
-

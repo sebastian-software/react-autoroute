@@ -1,14 +1,26 @@
-import { createBrowserRouter, createHashRouter, RouterProvider } from "react-router-dom"
-import { createRoutes, modulesToLazyRouteObjects, ReactRouterRouteModule } from "react-autoroute"
+import {
+  createBrowserRouter,
+  createHashRouter,
+  RouterProvider
+} from "react-router-dom"
+import {
+  createRoutes,
+  modulesToLazyRouteObjects,
+  ReactRouterRouteModule
+} from "react-autoroute"
 
 const routes = createRoutes(
   modulesToLazyRouteObjects(
-    import.meta.glob<ReactRouterRouteModule>(["/src/routes/**/[\\w$[]*.{jsx,tsx}"]),
+    import.meta.glob<ReactRouterRouteModule>([
+      "/src/routes/**/[\\w$[]*.{jsx,tsx}"
+    ]),
     "/src/routes/"
   )
 )
 
-const createRouter = location.pathname.endsWith("/index.html") ? createHashRouter : createBrowserRouter
+const createRouter = location.pathname.endsWith("/index.html")
+  ? createHashRouter
+  : createBrowserRouter
 const router = createRouter(routes)
 
 function App() {

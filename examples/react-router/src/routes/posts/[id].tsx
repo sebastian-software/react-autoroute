@@ -24,7 +24,9 @@ export default function Post() {
   const post = data.find((entry) => entry.id === params.id)
   return (
     <>
-      <h1>{post?.title} #{params.id}</h1>
+      <h1>
+        {post?.title} #{params.id}
+      </h1>
       <p>{post?.text}</p>
     </>
   )
