@@ -1,6 +1,6 @@
 {
   "name": "react-autoroute",
-  "version": "0.6.3",
+  "version": "0.7.0",
   "description": "A route auto generator based on Vite glob patterns",
   "license": "Apache-2.0",
   "author": "Sebastian Werner <s.werner@sebastian-software.de> (http://sebastian-software.de/werner)",
