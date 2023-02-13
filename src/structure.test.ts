@@ -174,8 +174,10 @@ describe("Create Structure", () => {
               "element": "<PagePostIndex />",
             },
             "layout": {
+              "action": "__ACTION_PLACEHOLDER__",
               "element": "<LayoutPosts />",
               "errorElement": "<PagePostsError />",
+              "loader": "__LOADER_PLACEHOLDER__",
             },
             "path": "posts",
           },

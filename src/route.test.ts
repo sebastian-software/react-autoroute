@@ -54,6 +54,7 @@ describe("Create Routes", () => {
               "path": "posts/archive",
             },
             {
+              "action": "__ACTION_PLACEHOLDER__",
               "children": [
                 {
                   "element": "<PagePostIndex />",
@@ -67,6 +68,7 @@ describe("Create Routes", () => {
               ],
               "element": "<LayoutPosts />",
               "errorElement": "<PagePostsError />",
+              "loader": "__LOADER_PLACEHOLDER__",
               "path": "posts",
             },
           ],

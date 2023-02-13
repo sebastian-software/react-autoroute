@@ -18,7 +18,9 @@ export const postsPagesWithLayout = {
   "posts.archive.tsx": { element: "<PagePostsArchive />" },
   "posts/_.tsx": {
     element: "<LayoutPosts />",
-    errorElement: "<PagePostsError />"
+    errorElement: "<PagePostsError />",
+    loader: "__LOADER_PLACEHOLDER__",
+    action: "__ACTION_PLACEHOLDER__"
   },
   "posts/[slug].tsx": { element: "<PagePost />" },
   "posts/index.tsx": { element: "<PagePostIndex />" }
