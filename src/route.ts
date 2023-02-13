@@ -21,7 +21,7 @@ export function createRoute(item: BaseRoute, prepend = ""): RouteObject {
     }
   } else {
     // Filter out children in clone to process this later on...
-    let { children, path, ...rest } = item
+    const { children, path, ...rest } = item
     route = rest
 
     // Make sure to prepend path segments from parent if not consumed already e.g. layout only

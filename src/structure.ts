@@ -22,7 +22,7 @@ function camelToKebab(str: string): string {
 export function addModule(root: BaseRoute, fragments: string[], module: BaseRoute) {
   let parent = root
   const length = fragments.length - 1
-  for (var i = 0; i < length; i++) {
+  for (let i = 0; i < length; i++) {
     const name = fragments[i]
     let child: BaseRoute | undefined
     if (parent.children) {
