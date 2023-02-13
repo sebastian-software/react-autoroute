@@ -19,11 +19,7 @@ function camelToKebab(str: string): string {
   return kebab
 }
 
-export function addModule(
-  root: BaseRoute,
-  fragments: string[],
-  module: BaseRoute
-) {
+export function addModule(root: BaseRoute, fragments: string[], module: BaseRoute) {
   let parent = root
   const length = fragments.length - 1
   for (var i = 0; i < length; i++) {
@@ -31,9 +27,7 @@ export function addModule(
     let child: BaseRoute | undefined
     if (parent.children) {
       // Find potential previously added parent candidate which is not a leaf (= same folder)
-      child = parent.children.find(
-        (child) => !child.leaf && child.path === name
-      )
+      child = parent.children.find((child) => !child.leaf && child.path === name)
     } else {
       parent.children = []
     }
@@ -66,9 +60,7 @@ export function addModule(
     parent.layout = module
   } else if (name === "index") {
     if (parent.index) {
-      throw new Error(
-        `Collision of two index pages at: ${JSON.stringify(fragments)}`
-      )
+      throw new Error(`Collision of two index pages at: ${JSON.stringify(fragments)}`)
     }
 
     parent.index = module

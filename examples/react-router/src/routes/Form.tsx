@@ -17,9 +17,7 @@ const fakeData: Record<string, any> = {
   name: "Schmidt"
 }
 
-export async function loader({
-  params
-}: LoaderFunctionArgs): Promise<LoaderResult> {
+export async function loader({ params }: LoaderFunctionArgs): Promise<LoaderResult> {
   console.log("Loader: Router Params:", params)
 
   // This could be any `fetch()` which loads data from a remote

@@ -69,8 +69,7 @@ describe("Create Structure", () => {
   })
 
   test("root pages with layout (layout first)", () => {
-    expect(createStructure({ ...rootLayout, ...rootPages }))
-      .toMatchInlineSnapshot(`
+    expect(createStructure({ ...rootLayout, ...rootPages })).toMatchInlineSnapshot(`
       {
         "children": [
           {
@@ -97,8 +96,7 @@ describe("Create Structure", () => {
   })
 
   test("root pages with layout (pages first)", () => {
-    expect(createStructure({ ...rootPages, ...rootLayout }))
-      .toMatchInlineSnapshot(`
+    expect(createStructure({ ...rootPages, ...rootLayout })).toMatchInlineSnapshot(`
       {
         "children": [
           {

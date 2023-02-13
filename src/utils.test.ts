@@ -19,8 +19,7 @@ describe("Utils", () => {
         "index",
       ]
     `)
-    expect(fileNameToLayoutStructure("posts/[slug].tsx"))
-      .toMatchInlineSnapshot(`
+    expect(fileNameToLayoutStructure("posts/[slug].tsx")).toMatchInlineSnapshot(`
       [
         "posts",
         ":slug",
