@@ -28,6 +28,7 @@ describe("Create Structure", () => {
         "children": [
           {
             "element": "<PageAbout />",
+            "errorElement": "<PageAboutWithError />",
             "leaf": true,
             "path": "about",
           },
@@ -74,6 +75,7 @@ describe("Create Structure", () => {
         "children": [
           {
             "element": "<PageAbout />",
+            "errorElement": "<PageAboutWithError />",
             "leaf": true,
             "path": "about",
           },
@@ -101,6 +103,7 @@ describe("Create Structure", () => {
         "children": [
           {
             "element": "<PageAbout />",
+            "errorElement": "<PageAboutWithError />",
             "leaf": true,
             "path": "about",
           },

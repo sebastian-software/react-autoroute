@@ -3,7 +3,7 @@ export const rootLayout = {
 }
 
 export const rootPages = {
-  "about.tsx": { element: "<PageAbout />" },
+  "about.tsx": { element: "<PageAbout />", errorElement: "<PageAboutWithError />" },
   "index.tsx": { element: "<PageRoot />" },
   "404.tsx": { element: "<NotFound />" }
 }

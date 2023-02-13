@@ -10,6 +10,7 @@ describe("Create Routes", () => {
           "children": [
             {
               "element": "<PageAbout />",
+              "errorElement": "<PageAboutWithError />",
               "leaf": true,
               "path": "about",
             },
@@ -38,6 +39,7 @@ describe("Create Routes", () => {
             },
             {
               "element": "<PageAbout />",
+              "errorElement": "<PageAboutWithError />",
               "leaf": true,
               "path": "about",
             },
